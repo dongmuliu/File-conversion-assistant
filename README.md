@@ -14,3 +14,6 @@
 3.**png文件**。读取png文件，目前只支持读取16bit图像。界面显示映射为0到255空间的灰度图及伪彩色图
 
 4.**文件格式**。在file中，可以看到解析的文件格式。
+
+5.**Release版本**。
+https://github.com/dongmuliu/File-conversion-assistant/releases/tag/FileConverAssV1.0
