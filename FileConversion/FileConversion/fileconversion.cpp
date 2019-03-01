@@ -24,9 +24,10 @@ FileConversion::~FileConversion()
 {
 
 }
+//打开文件
 void FileConversion::OpenFileSlot()
 {
-	//get the file name
+	//获取文件路径
 	fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Images(*.csv *.bin *.png)"));
 	if (fileName.isEmpty())//isNull
 		return;
@@ -79,6 +80,7 @@ void FileConversion::OpenFileSlot()
 		ui.currentlineEdit->setText("1");
 		string pngfilename = fileName.toStdString();
 		savemat = imread(pngfilename, CV_LOAD_IMAGE_ANYCOLOR | CV_LOAD_IMAGE_ANYDEPTH);
+		//判断是否为16位的图片
 		if (savemat.type() != CV_16U)
 		{
 			QMessageBox::information(this, "Error Message", "Should open 16bits depth image.");
@@ -86,7 +88,7 @@ void FileConversion::OpenFileSlot()
 		showimage();
 	}
 
-	//获取默认参数
+	//获取界面默认参数
 	upcount = ui.uplineEdit->text();
 	downcount = ui.downlineEdit->text();
 	leftcount = ui.leftlineEdit->text();
@@ -94,6 +96,7 @@ void FileConversion::OpenFileSlot()
 	maxdepth = (ui.maxdepthlineEdit->text()).toInt();
 	mindepth = (ui.mindepthlineEdit->text()).toInt();
 }
+//保存单张图片
 void FileConversion::SaveFileSlot()
 {
 	if (filestate != 1 && filestate != 2 && filestate != 3)
@@ -108,6 +111,7 @@ void FileConversion::SaveFileSlot()
 	imwrite(fileAsSave, savemat);
 	
 }
+//保存多张图片
 void FileConversion::SaveAllFileSlot()
 {
 	if (filestate != 1 && filestate != 2 && filestate != 3)
@@ -138,7 +142,7 @@ void FileConversion::SaveAllFileSlot()
 				ch = ba.data();
 				for (int i = 0; i < str.count(); i++)
 				{
-
+					//保存分割后的图片
 					if ((pixelCounter>leftcount.toInt()) && (pixelCounter <= (Img_width + rightcount.toInt())) && (rowCounter > (uprowCounter + upcount.toInt())) && (rowCounter <= (downrowCounter - downcount.toInt())))
 					{
 						if (ch[i] == 'N' || ch[i] == 'a')
@@ -213,12 +217,15 @@ void FileConversion::TurnRightSlot()
 }
 void FileConversion::AboutSlot()
 {
-	
+	QMessageBox::information(this, " Message", "Other features are under development!!!");
+	return;
 }
+//获取更新后的映射距离
 void FileConversion::SetColorSlot()
 {
 	showimage();
 }
+//更新参数信息
 void FileConversion::ConfirmSlot()
 {
 	if (filestate == 1)
@@ -260,7 +267,7 @@ void FileConversion::showcurrentframe()
 			ch = ba.data();
 			for (int i = 0; i < str.count(); i++)
 			{
-
+				//显示当前帧
 				if ((pixelCounter>leftcount.toInt()) && (pixelCounter <= (Img_width + rightcount.toInt())) && (rowCounter>(uprowCounter + upcount.toInt())) && (rowCounter <= (downrowCounter - downcount.toInt())))
 				{
 					if (ch[i] == 'N' || ch[i] == 'a')
@@ -302,6 +309,7 @@ void FileConversion::showcurrentframe()
 		file.close();
 	}
 }
+
 void FileConversion::showgrayimage()
 {
 	//在QT界面显示
@@ -310,7 +318,6 @@ void FileConversion::showgrayimage()
 	ui.graylabel->setPixmap(QPixmap::fromImage(img));
 	ui.graytextlabel->setText("gray");
 }
-//显示伪彩色
 void FileConversion::showcolorimage()
 {
 	img_color.create(Img_height, Img_width, CV_8UC3);//构造RGB图像
