@@ -1,4 +1,8 @@
 <RCC>
-    <qresource prefix="FileConversion">
-    </qresource>
+  <qresource prefix="FileConversion">
+    <file>Resources/help.ico</file>
+    <file>Resources/saveall.ico</file>
+    <file>Resources/save.ico</file>
+    <file>open.ico</file>
+  </qresource>
 </RCC>

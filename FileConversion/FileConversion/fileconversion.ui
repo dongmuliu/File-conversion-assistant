@@ -529,8 +529,8 @@
   </widget>
   <action name="opentoolAction">
    <property name="icon">
-    <iconset>
-     <normaloff>../icon/open.png</normaloff>../icon/open.png</iconset>
+    <iconset resource="fileconversion.qrc">
+     <normaloff>:/FileConversion/open.ico</normaloff>:/FileConversion/open.ico</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -538,8 +538,8 @@
   </action>
   <action name="savetoolAction">
    <property name="icon">
-    <iconset>
-     <normaloff>../icon/save.png</normaloff>../icon/save.png</iconset>
+    <iconset resource="fileconversion.qrc">
+     <normaloff>:/FileConversion/Resources/save.ico</normaloff>:/FileConversion/Resources/save.ico</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -547,8 +547,8 @@
   </action>
   <action name="savealltoolAction">
    <property name="icon">
-    <iconset>
-     <normaloff>../icon/saveall.png</normaloff>../icon/saveall.png</iconset>
+    <iconset resource="fileconversion.qrc">
+     <normaloff>:/FileConversion/Resources/saveall.ico</normaloff>:/FileConversion/Resources/saveall.ico</iconset>
    </property>
    <property name="text">
     <string>SaveAll</string>
@@ -556,8 +556,8 @@
   </action>
   <action name="abouttoolAction">
    <property name="icon">
-    <iconset>
-     <normaloff>../icon/help.png</normaloff>../icon/help.png</iconset>
+    <iconset resource="fileconversion.qrc">
+     <normaloff>:/FileConversion/Resources/help.ico</normaloff>:/FileConversion/Resources/help.ico</iconset>
    </property>
    <property name="text">
     <string>About</string>
@@ -565,8 +565,8 @@
   </action>
   <action name="openAction">
    <property name="icon">
-    <iconset>
-     <normaloff>../icon/open.png</normaloff>../icon/open.png</iconset>
+    <iconset resource="fileconversion.qrc">
+     <normaloff>:/FileConversion/open.ico</normaloff>:/FileConversion/open.ico</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -574,8 +574,8 @@
   </action>
   <action name="saveAction">
    <property name="icon">
-    <iconset>
-     <normaloff>../icon/save.png</normaloff>../icon/save.png</iconset>
+    <iconset resource="fileconversion.qrc">
+     <normaloff>:/FileConversion/Resources/save.ico</normaloff>:/FileConversion/Resources/save.ico</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -583,8 +583,8 @@
   </action>
   <action name="saveallAction">
    <property name="icon">
-    <iconset>
-     <normaloff>../icon/saveall.png</normaloff>../icon/saveall.png</iconset>
+    <iconset resource="fileconversion.qrc">
+     <normaloff>:/FileConversion/Resources/saveall.ico</normaloff>:/FileConversion/Resources/saveall.ico</iconset>
    </property>
    <property name="text">
     <string>SaveAll</string>
@@ -592,8 +592,8 @@
   </action>
   <action name="aboutAction">
    <property name="icon">
-    <iconset>
-     <normaloff>../icon/help.png</normaloff>../icon/help.png</iconset>
+    <iconset resource="fileconversion.qrc">
+     <normaloff>:/FileConversion/Resources/help.ico</normaloff>:/FileConversion/Resources/help.ico</iconset>
    </property>
    <property name="text">
     <string>About</string>
