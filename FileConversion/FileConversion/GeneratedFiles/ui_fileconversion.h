@@ -23,7 +23,6 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
@@ -95,7 +94,7 @@ public:
     QSpacerItem *verticalSpacer;
     QDockWidget *dockWidget_6;
     QWidget *dockWidgetContents_6;
-    QHBoxLayout *horizontalLayout_13;
+    QVBoxLayout *verticalLayout_7;
     QVBoxLayout *verticalLayout_5;
     QHBoxLayout *horizontalLayout_11;
     QLabel *label_13;
@@ -103,7 +102,10 @@ public:
     QLineEdit *totalframelineEdit;
     QHBoxLayout *horizontalLayout_12;
     QLabel *label_14;
-    QSpinBox *framespinBox;
+    QLineEdit *currentlineEdit;
+    QHBoxLayout *horizontalLayout_13;
+    QPushButton *backButton;
+    QPushButton *nextButton;
     QSpacerItem *verticalSpacer_3;
 
     void setupUi(QMainWindow *FileConversionClass)
@@ -396,14 +398,13 @@ public:
         dockWidget_6->setMinimumSize(QSize(200, 147));
         dockWidgetContents_6 = new QWidget();
         dockWidgetContents_6->setObjectName(QStringLiteral("dockWidgetContents_6"));
-        horizontalLayout_13 = new QHBoxLayout(dockWidgetContents_6);
-        horizontalLayout_13->setSpacing(6);
-        horizontalLayout_13->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
+        verticalLayout_7 = new QVBoxLayout(dockWidgetContents_6);
+        verticalLayout_7->setSpacing(6);
+        verticalLayout_7->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(-1, -1, -1, 0);
         horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setSpacing(6);
         horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
@@ -412,7 +413,7 @@ public:
 
         horizontalLayout_11->addWidget(label_13);
 
-        horizontalSpacer_5 = new QSpacerItem(68, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_5 = new QSpacerItem(50, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_11->addItem(horizontalSpacer_5);
 
@@ -432,23 +433,36 @@ public:
 
         horizontalLayout_12->addWidget(label_14);
 
-        framespinBox = new QSpinBox(dockWidgetContents_6);
-        framespinBox->setObjectName(QStringLiteral("framespinBox"));
-        framespinBox->setMinimum(0);
-        framespinBox->setMaximum(10000);
-        framespinBox->setValue(0);
+        currentlineEdit = new QLineEdit(dockWidgetContents_6);
+        currentlineEdit->setObjectName(QStringLiteral("currentlineEdit"));
 
-        horizontalLayout_12->addWidget(framespinBox);
+        horizontalLayout_12->addWidget(currentlineEdit);
 
 
         verticalLayout_5->addLayout(horizontalLayout_12);
 
+        horizontalLayout_13 = new QHBoxLayout();
+        horizontalLayout_13->setSpacing(6);
+        horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
+        backButton = new QPushButton(dockWidgetContents_6);
+        backButton->setObjectName(QStringLiteral("backButton"));
+
+        horizontalLayout_13->addWidget(backButton);
+
+        nextButton = new QPushButton(dockWidgetContents_6);
+        nextButton->setObjectName(QStringLiteral("nextButton"));
+
+        horizontalLayout_13->addWidget(nextButton);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_13);
+
+
+        verticalLayout_7->addLayout(verticalLayout_5);
+
         verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_5->addItem(verticalSpacer_3);
-
-
-        horizontalLayout_13->addLayout(verticalLayout_5);
+        verticalLayout_7->addItem(verticalSpacer_3);
 
         dockWidget_6->setWidget(dockWidgetContents_6);
         FileConversionClass->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dockWidget_6);
@@ -467,7 +481,8 @@ public:
         retranslateUi(FileConversionClass);
         QObject::connect(confirmButton, SIGNAL(clicked()), FileConversionClass, SLOT(ConfirmSlot()));
         QObject::connect(setcolorButton, SIGNAL(clicked()), FileConversionClass, SLOT(SetColorSlot()));
-        QObject::connect(framespinBox, SIGNAL(valueChanged(QString)), FileConversionClass, SLOT(TurnSlot()));
+        QObject::connect(backButton, SIGNAL(clicked()), FileConversionClass, SLOT(TurnLeftSlot()));
+        QObject::connect(nextButton, SIGNAL(clicked()), FileConversionClass, SLOT(TurnRightSlot()));
 
         QMetaObject::connectSlotsByName(FileConversionClass);
     } // setupUi
@@ -504,11 +519,14 @@ public:
         maxdepthlineEdit->setText(QApplication::translate("FileConversionClass", "30000", 0));
         label_10->setText(QApplication::translate("FileConversionClass", "Mindepth:", 0));
         mindepthlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
-        setcolorButton->setText(QApplication::translate("FileConversionClass", "SetColor", 0));
+        setcolorButton->setText(QApplication::translate("FileConversionClass", "Setdepth", 0));
         dockWidget_6->setWindowTitle(QApplication::translate("FileConversionClass", "Frame", 0));
         label_13->setText(QApplication::translate("FileConversionClass", "TotalFrame:", 0));
         totalframelineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
         label_14->setText(QApplication::translate("FileConversionClass", "CurrentFrame:", 0));
+        currentlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
+        backButton->setText(QApplication::translate("FileConversionClass", "Back", 0));
+        nextButton->setText(QApplication::translate("FileConversionClass", "Next", 0));
     } // retranslateUi
 
 };

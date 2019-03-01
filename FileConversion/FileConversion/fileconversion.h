@@ -46,21 +46,38 @@ public:
 private:
 	Ui::FileConversionClass ui;
 	QString fileName;
+	QString upcount;
+	QString downcount;
+	QString leftcount;
+	QString rightcount;
+	QString framecount;
+	QString currentframe;
+	QStringList tempOption;
 	double maxdepth;
 	double mindepth;
+	double interdepth;
 	ushort img_tmp;
 
 	int filestate = 0;
+	int   frameheight;
+	uint16_t depth[240][320];
+	uint16_t savedepth[240][320];
 	
 	Mat zip;
 	Mat img_color;
+	Mat depthzip;
 	QLabel *label;
+	void showcurrentframe();
+	void showgrayimage();
+	void showimage();
+	void showcolorimage();
 private slots:
 	void OpenFileSlot();
 	void SaveFileSlot();
 	void ConfirmSlot();
-	void TurnSlot();
 	void SaveAllFileSlot();
+	void TurnLeftSlot();
+	void TurnRightSlot();
 	void AboutSlot();
 	void SetColorSlot();
 };
