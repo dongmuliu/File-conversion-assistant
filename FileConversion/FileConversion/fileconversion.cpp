@@ -123,6 +123,8 @@ void FileConversion::SaveAllFileSlot()
 	if (filestate == 1)
 	{
 		QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), "/home", QFileDialog::ShowDirsOnly);
+		if (dir.isEmpty())//如果未选择文件便确认，即返回
+			return;
 		string fileAsSave = dir.toStdString();
 		int k = 1;
 		int pixelDep = 0;                      //像素点数值
@@ -190,6 +192,8 @@ void FileConversion::SaveAllFileSlot()
 	else
 	{
 		QString filename = QFileDialog::getSaveFileName(this, tr("Save Image"), "", tr("Images (*.png *.bmp *.jpg)")); //选择路径
+		if (filename.isEmpty())//如果未选择文件便确认，即返回
+			return;
 		string fileAsSave = filename.toStdString();
 		imwrite(fileAsSave, savemat);
 	}
