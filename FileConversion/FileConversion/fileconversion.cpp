@@ -35,17 +35,26 @@ void FileConversion::mousePressEvent(QMouseEvent *event)
 	//获得相对于控件的坐标
 	QPoint widgetPoint = ui.graylabel->mapFromGlobal(sPoint1);
 	//qDebug() << "相对于控件坐标:" << "(" << widgetPoint.rx() << "," << widgetPoint.ry() << ")";
-	image_x = QString::number(widgetPoint.rx());
-	ui.xlineEdit->setText(image_x);
-	image_y = QString::number(widgetPoint.ry());
-	ui.ylineEdit->setText(image_y);
-	img_infor = savemat.clone();
-	img_depth = img_infor.at<ushort>(image_y.toInt(), image_x.toInt());
-	img_distance = img_depth * 12 / 30000;
-	QString point_depth = QString::number(img_depth);
-	ui.depthlineEdit->setText(point_depth);
-	QString point_dis = QString::number(img_distance);
-	ui.DislineEdit->setText(point_dis);
+	if (sPoint1.rx() >= (sPoint1.rx() - widgetPoint.rx()) & sPoint1.rx() <= (sPoint1.rx() - widgetPoint.rx() + Img_width) & sPoint1.ry() >= (sPoint1.ry() - widgetPoint.ry()) & sPoint1.ry() <= (sPoint1.ry() - widgetPoint.ry()+Img_height))
+	{
+		//qDebug() << "偏移量:" << "(" << (sPoint1.rx() - widgetPoint.rx()) << "," << (sPoint1.ry()- widgetPoint.ry()) << ")";
+		image_x = QString::number(widgetPoint.rx());
+		ui.xlineEdit->setText(image_x);
+		image_y = QString::number(widgetPoint.ry());
+		ui.ylineEdit->setText(image_y);
+		img_infor = savemat.clone();
+		img_depth = img_infor.at<ushort>(image_y.toInt(), image_x.toInt());
+		img_distance = img_depth * 12.5 / 30000;
+		QString point_depth = QString::number(img_depth);
+		ui.depthlineEdit->setText(point_depth);
+		QString point_dis = QString::number(img_distance);
+		ui.DislineEdit->setText(point_dis);
+	}
+	else
+	{
+		//QMessageBox::information(this, "Error Message", "Please Select a Right Place");
+	}
+	
 	
 	
 }
@@ -104,7 +113,7 @@ void FileConversion::OpenFileSlot()
 		filestate = 3;
 		ui.totalframelineEdit->setText("1");
 		ui.currentlineEdit->setText("1");
-		string pngfilename = fileName.toStdString();
+		string pngfilename = string(fileName.toLocal8Bit());
 		savemat = imread(pngfilename, CV_LOAD_IMAGE_ANYCOLOR | CV_LOAD_IMAGE_ANYDEPTH);
 		//判断是否为16位的图片
 		if (savemat.type() != CV_16U)
@@ -273,6 +282,10 @@ void FileConversion::ConfirmSlot()
 	else
 	{
 		QMessageBox::information(this, "Warning Message", "This is not a csv file, No need to set");
+		ui.uplineEdit->setText("0");
+		ui.downlineEdit->setText("0");
+		ui.leftlineEdit->setText("0");
+		ui.rightlineEdit->setText("0");
 		return;
 	}
 	
