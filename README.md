@@ -15,5 +15,8 @@
 
 4.**文件格式**。在file中，可以看到解析的文件格式。
 
-5.**Release版本**。
-https://github.com/dongmuliu/File-conversion-assistant/releases/tag/FileConverAssV1.2
+5.**深度信息**。鼠标点击灰度图，可以实时显示该点的坐标、深度值及实际物理距离。
+
+6.**Release版本**。
+
+https://github.com/dongmuliu/File-conversion-assistant/releases/tag/FileConverAssV1.3
