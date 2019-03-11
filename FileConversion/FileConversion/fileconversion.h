@@ -23,6 +23,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QIODevice>
 #include<qdebug.h>
+#include<QMouseEvent>
 
 using namespace std;
 using namespace cv;
@@ -52,11 +53,17 @@ private:
 	QString rightcount;
 	QString framecount;
 	QString currentframe;
+	QString image_x ;
+	QString image_y ;
 	QStringList tempOption;
 	double maxdepth;
 	double mindepth;
 	double interdepth;
+	double img_distance = 0;
+	double img_depth;
 	ushort img_tmp;
+	
+	
 
 	int filestate = 0;
 	int   frameheight;
@@ -66,11 +73,13 @@ private:
 	Mat zip;
 	Mat img_color;
 	Mat depthzip;
+	Mat img_infor;
 	QLabel *label;
 	void showcurrentframe();
 	void showgrayimage();
 	void showimage();
 	void showcolorimage();
+	void mousePressEvent(QMouseEvent *event);
 private slots:
 	void OpenFileSlot();
 	void SaveFileSlot();

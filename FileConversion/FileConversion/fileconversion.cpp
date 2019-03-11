@@ -17,12 +17,37 @@ FileConversion::FileConversion(QWidget *parent)
 	QObject::connect(ui.aboutAction, SIGNAL(triggered()), this, SLOT(AboutSlot()));
 	QObject::connect(ui.confirmButton, SIGNAL(triggered()), this, SLOT(ConfirmSlot()));
 	QObject::connect(ui.abouttoolAction, SIGNAL(triggered()), this, SLOT(AboutSlot()));
-	QObject::connect(ui.setcolorButton, SIGNAL(triggered()), this, SLOT(SetColorSlot()));
+	QObject::connect(ui.setColorButton, SIGNAL(triggered()), this, SLOT(SetColorSlot()));
+	QObject::connect(ui.mindepthLineEdit, SIGNAL(editingFinished()), this, SLOT(SetColorSlot()));
+	QObject::connect(ui.maxdepthLineEdit, SIGNAL(editingFinished()), this, SLOT(SetColorSlot()));
 }
 
 FileConversion::~FileConversion()
 {
 
+}
+//鼠标单击相应，获取当前深度值
+void FileConversion::mousePressEvent(QMouseEvent *event)
+{
+	//获得相对于屏幕的坐标
+	QPoint sPoint1 = event->globalPos();
+	//qDebug() << "相对于屏幕坐标1:" << "(" << sPoint1.rx() << "," << sPoint1.ry() << ")";
+	//获得相对于控件的坐标
+	QPoint widgetPoint = ui.graylabel->mapFromGlobal(sPoint1);
+	//qDebug() << "相对于控件坐标:" << "(" << widgetPoint.rx() << "," << widgetPoint.ry() << ")";
+	image_x = QString::number(widgetPoint.rx());
+	ui.xlineEdit->setText(image_x);
+	image_y = QString::number(widgetPoint.ry());
+	ui.ylineEdit->setText(image_y);
+	img_infor = savemat.clone();
+	img_depth = img_infor.at<ushort>(image_y.toInt(), image_x.toInt());
+	img_distance = img_depth * 12 / 30000;
+	QString point_depth = QString::number(img_depth);
+	ui.depthlineEdit->setText(point_depth);
+	QString point_dis = QString::number(img_distance);
+	ui.DislineEdit->setText(point_dis);
+	
+	
 }
 //打开文件
 void FileConversion::OpenFileSlot()
@@ -70,6 +95,7 @@ void FileConversion::OpenFileSlot()
 					savemat.at<ushort>(i, j) = 30000;
 			}
 		}
+		
 		delete[] imagebuf;
 		showimage();
 	}
@@ -93,8 +119,8 @@ void FileConversion::OpenFileSlot()
 	downcount = ui.downlineEdit->text();
 	leftcount = ui.leftlineEdit->text();
 	rightcount = ui.rightlineEdit->text();
-	maxdepth = (ui.maxdepthlineEdit->text()).toInt();
-	mindepth = (ui.mindepthlineEdit->text()).toInt();
+	maxdepth = (ui.maxdepthLineEdit->text()).toInt();
+	mindepth = (ui.mindepthLineEdit->text()).toInt();
 }
 //保存单张图片
 void FileConversion::SaveFileSlot()
@@ -224,6 +250,7 @@ void FileConversion::AboutSlot()
 	QMessageBox::information(this, " Message", "Other features are under development!!!");
 	return;
 }
+
 //获取更新后的映射距离
 void FileConversion::SetColorSlot()
 {
@@ -304,6 +331,7 @@ void FileConversion::showcurrentframe()
 						savemat.at<ushort>(i, j) = depth[240 - i][j];
 					}
 				}
+				
 				showimage();
 				break;
 			}
@@ -319,8 +347,16 @@ void FileConversion::showgrayimage()
 	//在QT界面显示
 	QImage img = QImage((const unsigned char*)(showgray.data), showgray.cols, showgray.rows, QImage::Format_Indexed8);
 	label = new QLabel();
+	ui.graylabel->setAlignment(Qt::AlignCenter);		//居中显示
 	ui.graylabel->setPixmap(QPixmap::fromImage(img));
-	ui.graytextlabel->setText("gray");
+	//ui.graytextlabel->setText("gray");
+	//topPoint.x = leftTopLeftPoint.x() - xoffset;
+	//int  viewPoint = event.globalPos();
+	/*QString x = QString::number(yoffset);
+	ui.lineEdit->setText(x);*/
+	//setMouseCallback(label, on_mouse, &savemat);
+	
+	
 }
 void FileConversion::showcolorimage()
 {
@@ -369,16 +405,17 @@ void FileConversion::showcolorimage()
 	//在QT界面显示（伪彩色）
 	QImage img = QImage((const unsigned char*)(img_color.data), img_color.cols, img_color.rows, QImage::Format_RGB888);
 	label = new QLabel();
+	ui.colorlabel->setAlignment(Qt::AlignCenter);		//居中显示
 	ui.colorlabel->setPixmap(QPixmap::fromImage(img));
-	ui.colortextlabel->setText("color");
+	//ui.colortextlabel->setText("color");
 }
 //显示灰度图和伪彩色图
 void FileConversion::showimage()
 {
 	
 	depthzip = savemat.clone();
-	maxdepth = (ui.maxdepthlineEdit->text()).toInt();
-	mindepth = (ui.mindepthlineEdit->text()).toInt();
+	maxdepth = (ui.maxdepthLineEdit->text()).toInt();
+	mindepth = (ui.mindepthLineEdit->text()).toInt();
 	if (mindepth > maxdepth)
 	{
 		QMessageBox::information(this, "Error Message", "Please Enter The Correct Format");
@@ -401,5 +438,8 @@ void FileConversion::showimage()
 	}
 	showgrayimage();
 	showcolorimage();
+	
+
 }
+
 

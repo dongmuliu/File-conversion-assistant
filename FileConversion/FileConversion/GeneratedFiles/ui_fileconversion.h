@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDockWidget>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -42,16 +43,10 @@ public:
     QAction *saveallAction;
     QAction *aboutAction;
     QWidget *centralWidget;
-    QVBoxLayout *verticalLayout_6;
-    QSpacerItem *verticalSpacer_5;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout_4;
+    QWidget *layoutWidget;
+    QFormLayout *formLayout;
     QLabel *graylabel;
     QLabel *colorlabel;
-    QHBoxLayout *horizontalLayout_10;
-    QLabel *graytextlabel;
-    QLabel *colortextlabel;
-    QSpacerItem *verticalSpacer_4;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuHelp;
@@ -79,18 +74,6 @@ public:
     QSpacerItem *horizontalSpacer_4;
     QLineEdit *rightlineEdit;
     QPushButton *confirmButton;
-    QSpacerItem *verticalSpacer_2;
-    QDockWidget *dockWidget_5;
-    QWidget *dockWidgetContents_5;
-    QHBoxLayout *horizontalLayout_2;
-    QVBoxLayout *verticalLayout_4;
-    QHBoxLayout *horizontalLayout_8;
-    QLabel *label_4;
-    QLineEdit *maxdepthlineEdit;
-    QHBoxLayout *horizontalLayout_9;
-    QLabel *label_10;
-    QLineEdit *mindepthlineEdit;
-    QPushButton *setcolorButton;
     QSpacerItem *verticalSpacer;
     QDockWidget *dockWidget_6;
     QWidget *dockWidgetContents_6;
@@ -106,13 +89,46 @@ public:
     QHBoxLayout *horizontalLayout_13;
     QPushButton *backButton;
     QPushButton *nextButton;
+    QSpacerItem *verticalSpacer_2;
+    QDockWidget *dockWidget_3;
+    QWidget *dockWidgetContents_10;
+    QVBoxLayout *verticalLayout_8;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_20;
+    QLabel *label_12;
+    QSpacerItem *horizontalSpacer_6;
+    QLineEdit *xlineEdit;
+    QHBoxLayout *horizontalLayout_21;
+    QLabel *label_15;
+    QSpacerItem *horizontalSpacer_7;
+    QLineEdit *ylineEdit;
+    QHBoxLayout *horizontalLayout_22;
+    QLabel *label_16;
+    QSpacerItem *horizontalSpacer_8;
+    QLineEdit *depthlineEdit;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label;
+    QSpacerItem *horizontalSpacer_9;
+    QLineEdit *DislineEdit;
     QSpacerItem *verticalSpacer_3;
+    QDockWidget *dockWidget_7;
+    QWidget *dockWidgetContents_9;
+    QVBoxLayout *verticalLayout_4;
+    QVBoxLayout *verticalLayout_6;
+    QHBoxLayout *horizontalLayout_15;
+    QLabel *label_7;
+    QLineEdit *maxdepthLineEdit;
+    QHBoxLayout *horizontalLayout_16;
+    QLabel *label_11;
+    QLineEdit *mindepthLineEdit;
+    QPushButton *setColorButton;
+    QSpacerItem *verticalSpacer_6;
 
     void setupUi(QMainWindow *FileConversionClass)
     {
         if (FileConversionClass->objectName().isEmpty())
             FileConversionClass->setObjectName(QStringLiteral("FileConversionClass"));
-        FileConversionClass->resize(884, 610);
+        FileConversionClass->resize(963, 581);
         opentoolAction = new QAction(FileConversionClass);
         opentoolAction->setObjectName(QStringLiteral("opentoolAction"));
         QIcon icon;
@@ -147,70 +163,34 @@ public:
         aboutAction->setIcon(icon3);
         centralWidget = new QWidget(FileConversionClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        verticalLayout_6 = new QVBoxLayout(centralWidget);
-        verticalLayout_6->setSpacing(6);
-        verticalLayout_6->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_6->addItem(verticalSpacer_5);
-
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setSpacing(6);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        graylabel = new QLabel(centralWidget);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(120, 0, 328, 488));
+        formLayout = new QFormLayout(layoutWidget);
+        formLayout->setSpacing(6);
+        formLayout->setContentsMargins(11, 11, 11, 11);
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setContentsMargins(0, 0, 0, 0);
+        graylabel = new QLabel(layoutWidget);
         graylabel->setObjectName(QStringLiteral("graylabel"));
         graylabel->setMinimumSize(QSize(320, 240));
         graylabel->setMaximumSize(QSize(320, 240));
         graylabel->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_4->addWidget(graylabel);
+        formLayout->setWidget(0, QFormLayout::LabelRole, graylabel);
 
-        colorlabel = new QLabel(centralWidget);
+        colorlabel = new QLabel(layoutWidget);
         colorlabel->setObjectName(QStringLiteral("colorlabel"));
         colorlabel->setMinimumSize(QSize(320, 240));
         colorlabel->setMaximumSize(QSize(320, 240));
         colorlabel->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_4->addWidget(colorlabel);
-
-
-        verticalLayout->addLayout(horizontalLayout_4);
-
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setSpacing(6);
-        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
-        graytextlabel = new QLabel(centralWidget);
-        graytextlabel->setObjectName(QStringLiteral("graytextlabel"));
-        graytextlabel->setMaximumSize(QSize(400, 50));
-        graytextlabel->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(graytextlabel);
-
-        colortextlabel = new QLabel(centralWidget);
-        colortextlabel->setObjectName(QStringLiteral("colortextlabel"));
-        colortextlabel->setMaximumSize(QSize(400, 50));
-        colortextlabel->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(colortextlabel);
-
-
-        verticalLayout->addLayout(horizontalLayout_10);
-
-
-        verticalLayout_6->addLayout(verticalLayout);
-
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_6->addItem(verticalSpacer_4);
+        formLayout->setWidget(1, QFormLayout::LabelRole, colorlabel);
 
         FileConversionClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(FileConversionClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 884, 23));
+        menuBar->setGeometry(QRect(0, 0, 963, 23));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuHelp = new QMenu(menuBar);
@@ -326,73 +306,15 @@ public:
 
         verticalLayout_3->addWidget(confirmButton);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_3->addItem(verticalSpacer_2);
+        verticalLayout_3->addItem(verticalSpacer);
 
 
         horizontalLayout->addLayout(verticalLayout_3);
 
         dockWidget_4->setWidget(dockWidgetContents_4);
         FileConversionClass->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dockWidget_4);
-        dockWidget_5 = new QDockWidget(FileConversionClass);
-        dockWidget_5->setObjectName(QStringLiteral("dockWidget_5"));
-        dockWidget_5->setMinimumSize(QSize(200, 133));
-        dockWidgetContents_5 = new QWidget();
-        dockWidgetContents_5->setObjectName(QStringLiteral("dockWidgetContents_5"));
-        horizontalLayout_2 = new QHBoxLayout(dockWidgetContents_5);
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setSpacing(6);
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        label_4 = new QLabel(dockWidgetContents_5);
-        label_4->setObjectName(QStringLiteral("label_4"));
-
-        horizontalLayout_8->addWidget(label_4);
-
-        maxdepthlineEdit = new QLineEdit(dockWidgetContents_5);
-        maxdepthlineEdit->setObjectName(QStringLiteral("maxdepthlineEdit"));
-
-        horizontalLayout_8->addWidget(maxdepthlineEdit);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_8);
-
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setSpacing(6);
-        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        label_10 = new QLabel(dockWidgetContents_5);
-        label_10->setObjectName(QStringLiteral("label_10"));
-
-        horizontalLayout_9->addWidget(label_10);
-
-        mindepthlineEdit = new QLineEdit(dockWidgetContents_5);
-        mindepthlineEdit->setObjectName(QStringLiteral("mindepthlineEdit"));
-
-        horizontalLayout_9->addWidget(mindepthlineEdit);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_9);
-
-        setcolorButton = new QPushButton(dockWidgetContents_5);
-        setcolorButton->setObjectName(QStringLiteral("setcolorButton"));
-
-        verticalLayout_4->addWidget(setcolorButton);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_4->addItem(verticalSpacer);
-
-
-        horizontalLayout_2->addLayout(verticalLayout_4);
-
-        dockWidget_5->setWidget(dockWidgetContents_5);
-        FileConversionClass->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dockWidget_5);
         dockWidget_6 = new QDockWidget(FileConversionClass);
         dockWidget_6->setObjectName(QStringLiteral("dockWidget_6"));
         dockWidget_6->setMinimumSize(QSize(200, 147));
@@ -419,6 +341,7 @@ public:
 
         totalframelineEdit = new QLineEdit(dockWidgetContents_6);
         totalframelineEdit->setObjectName(QStringLiteral("totalframelineEdit"));
+        totalframelineEdit->setReadOnly(true);
 
         horizontalLayout_11->addWidget(totalframelineEdit);
 
@@ -435,6 +358,7 @@ public:
 
         currentlineEdit = new QLineEdit(dockWidgetContents_6);
         currentlineEdit->setObjectName(QStringLiteral("currentlineEdit"));
+        currentlineEdit->setReadOnly(true);
 
         horizontalLayout_12->addWidget(currentlineEdit);
 
@@ -460,12 +384,175 @@ public:
 
         verticalLayout_7->addLayout(verticalLayout_5);
 
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_7->addItem(verticalSpacer_3);
+        verticalLayout_7->addItem(verticalSpacer_2);
 
         dockWidget_6->setWidget(dockWidgetContents_6);
         FileConversionClass->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dockWidget_6);
+        dockWidget_3 = new QDockWidget(FileConversionClass);
+        dockWidget_3->setObjectName(QStringLiteral("dockWidget_3"));
+        dockWidget_3->setFloating(false);
+        dockWidgetContents_10 = new QWidget();
+        dockWidgetContents_10->setObjectName(QStringLiteral("dockWidgetContents_10"));
+        verticalLayout_8 = new QVBoxLayout(dockWidgetContents_10);
+        verticalLayout_8->setSpacing(6);
+        verticalLayout_8->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout_20 = new QHBoxLayout();
+        horizontalLayout_20->setSpacing(6);
+        horizontalLayout_20->setObjectName(QStringLiteral("horizontalLayout_20"));
+        label_12 = new QLabel(dockWidgetContents_10);
+        label_12->setObjectName(QStringLiteral("label_12"));
+
+        horizontalLayout_20->addWidget(label_12);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_20->addItem(horizontalSpacer_6);
+
+        xlineEdit = new QLineEdit(dockWidgetContents_10);
+        xlineEdit->setObjectName(QStringLiteral("xlineEdit"));
+        xlineEdit->setReadOnly(true);
+
+        horizontalLayout_20->addWidget(xlineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_20);
+
+        horizontalLayout_21 = new QHBoxLayout();
+        horizontalLayout_21->setSpacing(6);
+        horizontalLayout_21->setObjectName(QStringLiteral("horizontalLayout_21"));
+        label_15 = new QLabel(dockWidgetContents_10);
+        label_15->setObjectName(QStringLiteral("label_15"));
+
+        horizontalLayout_21->addWidget(label_15);
+
+        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_21->addItem(horizontalSpacer_7);
+
+        ylineEdit = new QLineEdit(dockWidgetContents_10);
+        ylineEdit->setObjectName(QStringLiteral("ylineEdit"));
+        ylineEdit->setReadOnly(true);
+
+        horizontalLayout_21->addWidget(ylineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_21);
+
+        horizontalLayout_22 = new QHBoxLayout();
+        horizontalLayout_22->setSpacing(6);
+        horizontalLayout_22->setObjectName(QStringLiteral("horizontalLayout_22"));
+        label_16 = new QLabel(dockWidgetContents_10);
+        label_16->setObjectName(QStringLiteral("label_16"));
+
+        horizontalLayout_22->addWidget(label_16);
+
+        horizontalSpacer_8 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_22->addItem(horizontalSpacer_8);
+
+        depthlineEdit = new QLineEdit(dockWidgetContents_10);
+        depthlineEdit->setObjectName(QStringLiteral("depthlineEdit"));
+        depthlineEdit->setReadOnly(true);
+
+        horizontalLayout_22->addWidget(depthlineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_22);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        label = new QLabel(dockWidgetContents_10);
+        label->setObjectName(QStringLiteral("label"));
+
+        horizontalLayout_2->addWidget(label);
+
+        horizontalSpacer_9 = new QSpacerItem(5, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_9);
+
+        DislineEdit = new QLineEdit(dockWidgetContents_10);
+        DislineEdit->setObjectName(QStringLiteral("DislineEdit"));
+        DislineEdit->setReadOnly(true);
+
+        horizontalLayout_2->addWidget(DislineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
+
+        verticalLayout_8->addLayout(verticalLayout);
+
+        verticalSpacer_3 = new QSpacerItem(20, 70, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_8->addItem(verticalSpacer_3);
+
+        dockWidget_3->setWidget(dockWidgetContents_10);
+        FileConversionClass->addDockWidget(static_cast<Qt::DockWidgetArea>(2), dockWidget_3);
+        dockWidget_7 = new QDockWidget(FileConversionClass);
+        dockWidget_7->setObjectName(QStringLiteral("dockWidget_7"));
+        dockWidget_7->setMinimumSize(QSize(200, 133));
+        dockWidgetContents_9 = new QWidget();
+        dockWidgetContents_9->setObjectName(QStringLiteral("dockWidgetContents_9"));
+        verticalLayout_4 = new QVBoxLayout(dockWidgetContents_9);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        horizontalLayout_15 = new QHBoxLayout();
+        horizontalLayout_15->setSpacing(6);
+        horizontalLayout_15->setObjectName(QStringLiteral("horizontalLayout_15"));
+        label_7 = new QLabel(dockWidgetContents_9);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        horizontalLayout_15->addWidget(label_7);
+
+        maxdepthLineEdit = new QLineEdit(dockWidgetContents_9);
+        maxdepthLineEdit->setObjectName(QStringLiteral("maxdepthLineEdit"));
+
+        horizontalLayout_15->addWidget(maxdepthLineEdit);
+
+
+        verticalLayout_6->addLayout(horizontalLayout_15);
+
+        horizontalLayout_16 = new QHBoxLayout();
+        horizontalLayout_16->setSpacing(6);
+        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
+        label_11 = new QLabel(dockWidgetContents_9);
+        label_11->setObjectName(QStringLiteral("label_11"));
+
+        horizontalLayout_16->addWidget(label_11);
+
+        mindepthLineEdit = new QLineEdit(dockWidgetContents_9);
+        mindepthLineEdit->setObjectName(QStringLiteral("mindepthLineEdit"));
+
+        horizontalLayout_16->addWidget(mindepthLineEdit);
+
+
+        verticalLayout_6->addLayout(horizontalLayout_16);
+
+        setColorButton = new QPushButton(dockWidgetContents_9);
+        setColorButton->setObjectName(QStringLiteral("setColorButton"));
+
+        verticalLayout_6->addWidget(setColorButton);
+
+
+        verticalLayout_4->addLayout(verticalLayout_6);
+
+        verticalSpacer_6 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_4->addItem(verticalSpacer_6);
+
+        dockWidget_7->setWidget(dockWidgetContents_9);
+        FileConversionClass->addDockWidget(static_cast<Qt::DockWidgetArea>(2), dockWidget_7);
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuHelp->menuAction());
@@ -480,7 +567,6 @@ public:
 
         retranslateUi(FileConversionClass);
         QObject::connect(confirmButton, SIGNAL(clicked()), FileConversionClass, SLOT(ConfirmSlot()));
-        QObject::connect(setcolorButton, SIGNAL(clicked()), FileConversionClass, SLOT(SetColorSlot()));
         QObject::connect(backButton, SIGNAL(clicked()), FileConversionClass, SLOT(TurnLeftSlot()));
         QObject::connect(nextButton, SIGNAL(clicked()), FileConversionClass, SLOT(TurnRightSlot()));
 
@@ -500,8 +586,6 @@ public:
         aboutAction->setText(QApplication::translate("FileConversionClass", "About", 0));
         graylabel->setText(QString());
         colorlabel->setText(QString());
-        graytextlabel->setText(QString());
-        colortextlabel->setText(QString());
         menuFile->setTitle(QApplication::translate("FileConversionClass", "File", 0));
         menuHelp->setTitle(QApplication::translate("FileConversionClass", "Help", 0));
         dockWidget_4->setWindowTitle(QApplication::translate("FileConversionClass", "Paraments", 0));
@@ -514,12 +598,6 @@ public:
         label_6->setText(QApplication::translate("FileConversionClass", "Right:", 0));
         rightlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
         confirmButton->setText(QApplication::translate("FileConversionClass", "Confirm", 0));
-        dockWidget_5->setWindowTitle(QApplication::translate("FileConversionClass", "Color", 0));
-        label_4->setText(QApplication::translate("FileConversionClass", "MaxDepth:", 0));
-        maxdepthlineEdit->setText(QApplication::translate("FileConversionClass", "30000", 0));
-        label_10->setText(QApplication::translate("FileConversionClass", "Mindepth:", 0));
-        mindepthlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
-        setcolorButton->setText(QApplication::translate("FileConversionClass", "Setdepth", 0));
         dockWidget_6->setWindowTitle(QApplication::translate("FileConversionClass", "Frame", 0));
         label_13->setText(QApplication::translate("FileConversionClass", "TotalFrame:", 0));
         totalframelineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
@@ -527,6 +605,21 @@ public:
         currentlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
         backButton->setText(QApplication::translate("FileConversionClass", "Back", 0));
         nextButton->setText(QApplication::translate("FileConversionClass", "Next", 0));
+        dockWidget_3->setWindowTitle(QApplication::translate("FileConversionClass", " Coordinate ", 0));
+        label_12->setText(QApplication::translate("FileConversionClass", "X:", 0));
+        xlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
+        label_15->setText(QApplication::translate("FileConversionClass", "Y:", 0));
+        ylineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
+        label_16->setText(QApplication::translate("FileConversionClass", "Depth:", 0));
+        depthlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
+        label->setText(QApplication::translate("FileConversionClass", "Distance:", 0));
+        DislineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
+        dockWidget_7->setWindowTitle(QApplication::translate("FileConversionClass", "Color", 0));
+        label_7->setText(QApplication::translate("FileConversionClass", "MaxDepth:", 0));
+        maxdepthLineEdit->setText(QApplication::translate("FileConversionClass", "30000", 0));
+        label_11->setText(QApplication::translate("FileConversionClass", "Mindepth:", 0));
+        mindepthLineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
+        setColorButton->setText(QApplication::translate("FileConversionClass", "Setdepth", 0));
     } // retranslateUi
 
 };
