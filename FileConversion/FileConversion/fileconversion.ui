@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>FileConversion</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="fileconversion.qrc">
+    <normaloff>:/FileConversion/Resources/exe.ico</normaloff>:/FileConversion/Resources/exe.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">

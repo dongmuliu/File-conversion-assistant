@@ -142,7 +142,7 @@ void FileConversion::SaveFileSlot()
 	QString filename = QFileDialog::getSaveFileName(this, tr("Save Image"), "", tr("Images (*.png *.bmp *.jpg)")); //选择路径
 	if (filename.isEmpty())//如果未选择文件便确认，即返回
 		return;
-	string fileAsSave = filename.toStdString();
+	string fileAsSave = filename.toLocal8Bit();
 	imwrite(fileAsSave, savemat);
 	
 }
@@ -160,7 +160,7 @@ void FileConversion::SaveAllFileSlot()
 		QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), "/home", QFileDialog::ShowDirsOnly);
 		if (dir.isEmpty())//如果未选择文件便确认，即返回
 			return;
-		string fileAsSave = dir.toStdString();
+		string fileAsSave = dir.toLocal8Bit();
 		int k = 1;
 		int pixelDep = 0;                      //像素点数值
 		int pixelCounter = 0;				//行像素计数
@@ -229,7 +229,7 @@ void FileConversion::SaveAllFileSlot()
 		QString filename = QFileDialog::getSaveFileName(this, tr("Save Image"), "", tr("Images (*.png *.bmp *.jpg)")); //选择路径
 		if (filename.isEmpty())//如果未选择文件便确认，即返回
 			return;
-		string fileAsSave = filename.toStdString();
+		string fileAsSave = filename.toLocal8Bit();
 		imwrite(fileAsSave, savemat);
 	}
 
@@ -416,6 +416,7 @@ void FileConversion::showcolorimage()
 		}
 	}
 	//在QT界面显示（伪彩色）
+	cv::cvtColor(img_color, img_color, CV_BGR2RGB);//Opencv默认BGR存储，Qt需要RGB
 	QImage img = QImage((const unsigned char*)(img_color.data), img_color.cols, img_color.rows, QImage::Format_RGB888);
 	label = new QLabel();
 	ui.colorlabel->setAlignment(Qt::AlignCenter);		//居中显示

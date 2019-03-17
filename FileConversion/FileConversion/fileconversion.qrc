@@ -1,6 +1,7 @@
 <RCC>
   <qresource prefix="FileConversion">
     <file>Resources/help.ico</file>
+    <file>Resources/exe.ico</file>
     <file>Resources/saveall.ico</file>
     <file>Resources/save.ico</file>
     <file>open.ico</file>
