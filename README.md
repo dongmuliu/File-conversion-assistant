@@ -7,6 +7,10 @@
  
  Opencv2.4.13
 # Contents
+点击FileConversion.exe文件，界面显示如下：
+
+![](https://github.com/dongmuliu/File-conversion-assistant/blob/master/FileConversion/Image/image.png)
+
 1.**bin文件** 。读取bin文件，界面显示映射为0到255空间的灰度图及伪彩色图。可选择保存为.png,.bmp,.jpg格式。（默认保存为png格式）
 
 2.**csv文件**。读取csv文件，根据csv文件数据存储格式，调节参数，可以分割多帧图像。界面显示当前帧的灰度图及伪彩色图，可自由显示其他帧图像。保存时，可选择保存当前帧图像，也可选择一次性保存所有帧图像。
