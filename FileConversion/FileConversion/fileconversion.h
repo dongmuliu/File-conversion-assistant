@@ -59,6 +59,7 @@ private:
 	double maxdepth;
 	double mindepth;
 	double interdepth;
+	double color_interdepth;
 	double img_distance = 0;
 	double img_depth;
 	ushort img_tmp;
@@ -72,6 +73,7 @@ private:
 	
 	Mat zip;
 	Mat img_color;
+	Mat _matimg_short;
 	Mat depthzip;
 	Mat img_infor;
 	QLabel *label;

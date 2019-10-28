@@ -1,6 +1,7 @@
 #include "fileconversion.h"
 Mat savemat(Img_height, Img_width, CV_16UC1);
-Mat showgray(240, 320, CV_8UC1, Scalar(0));
+Mat showgray(Img_height, Img_width, CV_8UC1, Scalar(0));
+
 FileConversion::FileConversion(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -20,6 +21,8 @@ FileConversion::FileConversion(QWidget *parent)
 	QObject::connect(ui.setColorButton, SIGNAL(triggered()), this, SLOT(SetColorSlot()));
 	QObject::connect(ui.mindepthLineEdit, SIGNAL(editingFinished()), this, SLOT(SetColorSlot()));
 	QObject::connect(ui.maxdepthLineEdit, SIGNAL(editingFinished()), this, SLOT(SetColorSlot()));
+	img_color.create(Img_height, Img_width, CV_8UC3);//构造RGB图像
+   _matimg_short.create(Img_height, Img_width, CV_16UC1);
 }
 
 FileConversion::~FileConversion()
@@ -205,12 +208,12 @@ void FileConversion::SaveAllFileSlot()
 				}
 				if ((rowCounter > (downrowCounter - downcount.toInt())) || (rowCounter == (tempOption.count() - 1)))
 				{
-					Mat src_1(240, 320, CV_16UC1, Scalar(0));
-					for (int i = 0; i < 240; i++)
+					Mat src_1(Img_height, Img_width, CV_16UC1, Scalar(0));
+					for (int i = 0; i < Img_height; i++)
 					{
-						for (int j = 0; j < 320; j++)
+						for (int j = 0; j < Img_width; j++)
 						{
-							src_1.at<ushort>(i, j) = depth[240 - i][j];
+							src_1.at<ushort>(i, j) = depth[Img_height - i][j];
 						}
 					}
 					if (k <= framecount.toInt())
@@ -337,11 +340,11 @@ void FileConversion::showcurrentframe()
 			}
 			if ((rowCounter > (downrowCounter - downcount.toInt())) || (rowCounter == (tempOption.count() - 1)))
 			{
-				for (int i = 0; i < 240; i++)
+				for (int i = 0; i < Img_height; i++)
 				{
-					for (int j = 0; j < 320; j++)
+					for (int j = 0; j < Img_width; j++)
 					{
-						savemat.at<ushort>(i, j) = depth[240 - i][j];
+						savemat.at<ushort>(i, j) = depth[Img_height - i][j];
 					}
 				}
 				
@@ -373,45 +376,44 @@ void FileConversion::showgrayimage()
 }
 void FileConversion::showcolorimage()
 {
-	img_color.create(Img_height, Img_width, CV_8UC3);//构造RGB图像
-	for (int y = 0; y < Img_height; y++)
+	
+	for (int i = 0; i < Img_height; i++)
 	{
-		for (int x = 0; x < Img_width; x++)
+		for (int j = 0; j < Img_width; j++)
 		{
-			img_tmp = showgray.at<uchar>(y, x);
-			if (img_tmp < 51)
+			img_tmp = _matimg_short.at<ushort>(i, j);
+			if (img_tmp < 64)
 			{
-				IMG_B(img_color, y, x) = 0;
-				IMG_G(img_color, y, x) = img_tmp*5;
-				IMG_R(img_color, y, x) = 0;
+				IMG_R(img_color, i, j) = 191+ img_tmp;
+				IMG_G(img_color, i, j) = img_tmp;
+				IMG_B(img_color, i, j) = 0;
 			}
-			else if (img_tmp < 102)
+			else if (img_tmp < 255)
 			{
-				img_tmp -= 51;
-				IMG_B(img_color, y, x) = 255 - img_tmp*5;
-				IMG_G(img_color, y, x) = 255;
-				IMG_R(img_color, y, x) = 0;
+				IMG_R(img_color, i, j) = 255;
+				IMG_G(img_color, i, j) = img_tmp;
+				IMG_B(img_color, i, j) = 0;
 			}
-			else if (img_tmp < 153)
+			else if (img_tmp < 510)
 			{
-				img_tmp -= 102;
-				IMG_B(img_color, y, x) = 0;
-				IMG_G(img_color, y, x) = 255;
-				IMG_R(img_color, y, x) = img_tmp*5;
+				img_tmp -= 255;
+				IMG_B(img_color, i, j) = img_tmp;
+				IMG_G(img_color, i, j) = 255;
+				IMG_R(img_color, i, j) = 255 - img_tmp;
 			}
-			else if (img_tmp <= 204)
+			else if (img_tmp < 765)
 			{
-				img_tmp -= 153;
-				IMG_B(img_color, y, x) = 0;
-				IMG_G(img_color, y, x) = 255 - uchar(128.0*img_tmp / 51 + 0.5);
-				IMG_R(img_color, y, x) = 255;
+				img_tmp -= 510;
+				IMG_B(img_color, i, j) = 255;
+				IMG_G(img_color, i, j) = 255 - img_tmp;
+				IMG_R(img_color, i, j) = 0;
 			}
 			else
 			{
-				img_tmp -= 204;
-				IMG_B(img_color, y, x) = 0;
-				IMG_G(img_color, y, x) = 127 - uchar(127.0*img_tmp / 51 +0.5);
-				IMG_R(img_color, y, x) = 255;
+				img_tmp -= 765;
+				IMG_B(img_color, i, j) = 255 - img_tmp;
+				IMG_G(img_color, i, j) = 0;
+				IMG_R(img_color, i, j) = 0;
 			}
 		}
 	}
@@ -435,9 +437,10 @@ void FileConversion::showimage()
 		QMessageBox::information(this, "Error Message", "Please Enter The Correct Format");
 	}
 	interdepth = 255.0 / (maxdepth - mindepth);
-	for (int i = 0; i < 240; i++)
+	color_interdepth = 894.0 / (maxdepth - mindepth);
+	for (int i = 0; i < Img_height; i++)
 	{
-		for (int j = 0; j < 320; j++)
+		for (int j = 0; j < Img_width; j++)
 		{
 			if (depthzip.at<ushort>(i, j) > maxdepth)
 			{
@@ -448,12 +451,12 @@ void FileConversion::showimage()
 				depthzip.at<ushort>(i, j) = mindepth;
 			}
 			showgray.at<uchar>(i, j) = 255 - (uchar)((depthzip.at<ushort>(i, j)-mindepth)*interdepth);
+			_matimg_short.at<ushort>(i, j) = (ushort)((depthzip.at<ushort>(i, j) - mindepth)*interdepth);
 		}
 	}
 	showgrayimage();
 	showcolorimage();
 	
-
 }
 
 
