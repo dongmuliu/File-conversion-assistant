@@ -13,9 +13,8 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QDockWidget>
-#include <QtWidgets/QFormLayout>
-#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -43,8 +42,54 @@ public:
     QAction *saveallAction;
     QAction *aboutAction;
     QWidget *centralWidget;
-    QWidget *layoutWidget;
-    QFormLayout *formLayout;
+    QGridLayout *gridLayout_13;
+    QGridLayout *gridLayout_12;
+    QVBoxLayout *verticalLayout_5;
+    QVBoxLayout *verticalLayout_2;
+    QGroupBox *groupBox_2;
+    QGridLayout *gridLayout_4;
+    QGridLayout *gridLayout_3;
+    QLabel *label_13;
+    QLabel *label_14;
+    QPushButton *backButton;
+    QPushButton *nextButton;
+    QLineEdit *totalframelineEdit;
+    QLineEdit *currentlineEdit;
+    QGroupBox *groupBox_3;
+    QGridLayout *gridLayout_5;
+    QVBoxLayout *verticalLayout_4;
+    QGridLayout *gridLayout;
+    QLabel *label_3;
+    QLineEdit *uplineEdit;
+    QLabel *label_5;
+    QLineEdit *downlineEdit;
+    QLabel *label_9;
+    QLineEdit *leftlineEdit;
+    QLabel *label_6;
+    QLineEdit *rightlineEdit;
+    QGridLayout *gridLayout_2;
+    QPushButton *confirmButton;
+    QGroupBox *groupBox_4;
+    QGridLayout *gridLayout_10;
+    QGridLayout *gridLayout_6;
+    QLabel *label_12;
+    QLineEdit *xlineEdit;
+    QLabel *label_15;
+    QLineEdit *ylineEdit;
+    QLabel *label_16;
+    QLineEdit *depthlineEdit;
+    QLabel *label;
+    QLineEdit *DislineEdit;
+    QGroupBox *groupBox_5;
+    QGridLayout *gridLayout_11;
+    QGridLayout *gridLayout_8;
+    QLabel *label_7;
+    QLineEdit *maxdepthLineEdit;
+    QLabel *label_11;
+    QLineEdit *mindepthLineEdit;
+    QPushButton *setColorButton;
+    QSpacerItem *verticalSpacer;
+    QVBoxLayout *verticalLayout;
     QLabel *graylabel;
     QLabel *colorlabel;
     QMenuBar *menuBar;
@@ -52,83 +97,12 @@ public:
     QMenu *menuHelp;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
-    QDockWidget *dockWidget_4;
-    QWidget *dockWidgetContents_4;
-    QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout_3;
-    QVBoxLayout *verticalLayout_2;
-    QHBoxLayout *horizontalLayout_3;
-    QLabel *label_3;
-    QSpacerItem *horizontalSpacer;
-    QLineEdit *uplineEdit;
-    QHBoxLayout *horizontalLayout_5;
-    QLabel *label_5;
-    QSpacerItem *horizontalSpacer_2;
-    QLineEdit *downlineEdit;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *label_9;
-    QSpacerItem *horizontalSpacer_3;
-    QLineEdit *leftlineEdit;
-    QHBoxLayout *horizontalLayout_7;
-    QLabel *label_6;
-    QSpacerItem *horizontalSpacer_4;
-    QLineEdit *rightlineEdit;
-    QPushButton *confirmButton;
-    QSpacerItem *verticalSpacer;
-    QDockWidget *dockWidget_6;
-    QWidget *dockWidgetContents_6;
-    QVBoxLayout *verticalLayout_7;
-    QVBoxLayout *verticalLayout_5;
-    QHBoxLayout *horizontalLayout_11;
-    QLabel *label_13;
-    QSpacerItem *horizontalSpacer_5;
-    QLineEdit *totalframelineEdit;
-    QHBoxLayout *horizontalLayout_12;
-    QLabel *label_14;
-    QLineEdit *currentlineEdit;
-    QHBoxLayout *horizontalLayout_13;
-    QPushButton *backButton;
-    QPushButton *nextButton;
-    QSpacerItem *verticalSpacer_2;
-    QDockWidget *dockWidget_3;
-    QWidget *dockWidgetContents_10;
-    QVBoxLayout *verticalLayout_8;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout_20;
-    QLabel *label_12;
-    QSpacerItem *horizontalSpacer_6;
-    QLineEdit *xlineEdit;
-    QHBoxLayout *horizontalLayout_21;
-    QLabel *label_15;
-    QSpacerItem *horizontalSpacer_7;
-    QLineEdit *ylineEdit;
-    QHBoxLayout *horizontalLayout_22;
-    QLabel *label_16;
-    QSpacerItem *horizontalSpacer_8;
-    QLineEdit *depthlineEdit;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *label;
-    QSpacerItem *horizontalSpacer_9;
-    QLineEdit *DislineEdit;
-    QSpacerItem *verticalSpacer_3;
-    QDockWidget *dockWidget_7;
-    QWidget *dockWidgetContents_9;
-    QVBoxLayout *verticalLayout_4;
-    QVBoxLayout *verticalLayout_6;
-    QHBoxLayout *horizontalLayout_15;
-    QLabel *label_7;
-    QLineEdit *maxdepthLineEdit;
-    QHBoxLayout *horizontalLayout_16;
-    QLabel *label_11;
-    QLineEdit *mindepthLineEdit;
-    QPushButton *setColorButton;
-    QSpacerItem *verticalSpacer_6;
 
     void setupUi(QMainWindow *FileConversionClass)
     {
         if (FileConversionClass->objectName().isEmpty())
             FileConversionClass->setObjectName(QStringLiteral("FileConversionClass"));
-        FileConversionClass->resize(963, 581);
+        FileConversionClass->resize(533, 642);
         QIcon icon;
         icon.addFile(QStringLiteral(":/FileConversion/Resources/exe.ico"), QSize(), QIcon::Normal, QIcon::Off);
         FileConversionClass->setWindowIcon(icon);
@@ -166,34 +140,276 @@ public:
         aboutAction->setIcon(icon4);
         centralWidget = new QWidget(FileConversionClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        layoutWidget = new QWidget(centralWidget);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(120, 0, 328, 488));
-        formLayout = new QFormLayout(layoutWidget);
-        formLayout->setSpacing(6);
-        formLayout->setContentsMargins(11, 11, 11, 11);
-        formLayout->setObjectName(QStringLiteral("formLayout"));
-        formLayout->setContentsMargins(0, 0, 0, 0);
-        graylabel = new QLabel(layoutWidget);
+        gridLayout_13 = new QGridLayout(centralWidget);
+        gridLayout_13->setSpacing(6);
+        gridLayout_13->setContentsMargins(11, 11, 11, 11);
+        gridLayout_13->setObjectName(QStringLiteral("gridLayout_13"));
+        gridLayout_12 = new QGridLayout();
+        gridLayout_12->setSpacing(6);
+        gridLayout_12->setObjectName(QStringLiteral("gridLayout_12"));
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        groupBox_2 = new QGroupBox(centralWidget);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        gridLayout_4 = new QGridLayout(groupBox_2);
+        gridLayout_4->setSpacing(6);
+        gridLayout_4->setContentsMargins(11, 11, 11, 11);
+        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        label_13 = new QLabel(groupBox_2);
+        label_13->setObjectName(QStringLiteral("label_13"));
+
+        gridLayout_3->addWidget(label_13, 0, 0, 1, 1);
+
+        label_14 = new QLabel(groupBox_2);
+        label_14->setObjectName(QStringLiteral("label_14"));
+
+        gridLayout_3->addWidget(label_14, 2, 0, 1, 1);
+
+        backButton = new QPushButton(groupBox_2);
+        backButton->setObjectName(QStringLiteral("backButton"));
+
+        gridLayout_3->addWidget(backButton, 4, 0, 1, 1);
+
+        nextButton = new QPushButton(groupBox_2);
+        nextButton->setObjectName(QStringLiteral("nextButton"));
+
+        gridLayout_3->addWidget(nextButton, 4, 1, 1, 1);
+
+        totalframelineEdit = new QLineEdit(groupBox_2);
+        totalframelineEdit->setObjectName(QStringLiteral("totalframelineEdit"));
+        totalframelineEdit->setReadOnly(true);
+
+        gridLayout_3->addWidget(totalframelineEdit, 0, 1, 1, 1);
+
+        currentlineEdit = new QLineEdit(groupBox_2);
+        currentlineEdit->setObjectName(QStringLiteral("currentlineEdit"));
+        currentlineEdit->setReadOnly(true);
+
+        gridLayout_3->addWidget(currentlineEdit, 2, 1, 1, 1);
+
+
+        gridLayout_4->addLayout(gridLayout_3, 0, 0, 1, 1);
+
+
+        verticalLayout_2->addWidget(groupBox_2);
+
+        groupBox_3 = new QGroupBox(centralWidget);
+        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        gridLayout_5 = new QGridLayout(groupBox_3);
+        gridLayout_5->setSpacing(6);
+        gridLayout_5->setContentsMargins(11, 11, 11, 11);
+        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        gridLayout = new QGridLayout();
+        gridLayout->setSpacing(6);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        label_3 = new QLabel(groupBox_3);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout->addWidget(label_3, 0, 0, 1, 1);
+
+        uplineEdit = new QLineEdit(groupBox_3);
+        uplineEdit->setObjectName(QStringLiteral("uplineEdit"));
+
+        gridLayout->addWidget(uplineEdit, 0, 1, 1, 1);
+
+        label_5 = new QLabel(groupBox_3);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        gridLayout->addWidget(label_5, 1, 0, 1, 1);
+
+        downlineEdit = new QLineEdit(groupBox_3);
+        downlineEdit->setObjectName(QStringLiteral("downlineEdit"));
+
+        gridLayout->addWidget(downlineEdit, 1, 1, 1, 1);
+
+        label_9 = new QLabel(groupBox_3);
+        label_9->setObjectName(QStringLiteral("label_9"));
+
+        gridLayout->addWidget(label_9, 2, 0, 1, 1);
+
+        leftlineEdit = new QLineEdit(groupBox_3);
+        leftlineEdit->setObjectName(QStringLiteral("leftlineEdit"));
+
+        gridLayout->addWidget(leftlineEdit, 2, 1, 1, 1);
+
+        label_6 = new QLabel(groupBox_3);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        gridLayout->addWidget(label_6, 3, 0, 1, 1);
+
+        rightlineEdit = new QLineEdit(groupBox_3);
+        rightlineEdit->setObjectName(QStringLiteral("rightlineEdit"));
+
+        gridLayout->addWidget(rightlineEdit, 3, 1, 1, 1);
+
+
+        verticalLayout_4->addLayout(gridLayout);
+
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setSpacing(6);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        confirmButton = new QPushButton(groupBox_3);
+        confirmButton->setObjectName(QStringLiteral("confirmButton"));
+
+        gridLayout_2->addWidget(confirmButton, 0, 0, 1, 1);
+
+
+        verticalLayout_4->addLayout(gridLayout_2);
+
+
+        gridLayout_5->addLayout(verticalLayout_4, 0, 0, 1, 1);
+
+
+        verticalLayout_2->addWidget(groupBox_3);
+
+
+        verticalLayout_5->addLayout(verticalLayout_2);
+
+        groupBox_4 = new QGroupBox(centralWidget);
+        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
+        gridLayout_10 = new QGridLayout(groupBox_4);
+        gridLayout_10->setSpacing(6);
+        gridLayout_10->setContentsMargins(11, 11, 11, 11);
+        gridLayout_10->setObjectName(QStringLiteral("gridLayout_10"));
+        gridLayout_6 = new QGridLayout();
+        gridLayout_6->setSpacing(6);
+        gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
+        label_12 = new QLabel(groupBox_4);
+        label_12->setObjectName(QStringLiteral("label_12"));
+
+        gridLayout_6->addWidget(label_12, 0, 0, 1, 1);
+
+        xlineEdit = new QLineEdit(groupBox_4);
+        xlineEdit->setObjectName(QStringLiteral("xlineEdit"));
+        xlineEdit->setReadOnly(true);
+
+        gridLayout_6->addWidget(xlineEdit, 0, 1, 1, 1);
+
+        label_15 = new QLabel(groupBox_4);
+        label_15->setObjectName(QStringLiteral("label_15"));
+
+        gridLayout_6->addWidget(label_15, 1, 0, 1, 1);
+
+        ylineEdit = new QLineEdit(groupBox_4);
+        ylineEdit->setObjectName(QStringLiteral("ylineEdit"));
+        ylineEdit->setReadOnly(true);
+
+        gridLayout_6->addWidget(ylineEdit, 1, 1, 1, 1);
+
+        label_16 = new QLabel(groupBox_4);
+        label_16->setObjectName(QStringLiteral("label_16"));
+
+        gridLayout_6->addWidget(label_16, 2, 0, 1, 1);
+
+        depthlineEdit = new QLineEdit(groupBox_4);
+        depthlineEdit->setObjectName(QStringLiteral("depthlineEdit"));
+        depthlineEdit->setReadOnly(true);
+
+        gridLayout_6->addWidget(depthlineEdit, 2, 1, 1, 1);
+
+        label = new QLabel(groupBox_4);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout_6->addWidget(label, 3, 0, 1, 1);
+
+        DislineEdit = new QLineEdit(groupBox_4);
+        DislineEdit->setObjectName(QStringLiteral("DislineEdit"));
+        DislineEdit->setReadOnly(true);
+
+        gridLayout_6->addWidget(DislineEdit, 3, 1, 1, 1);
+
+
+        gridLayout_10->addLayout(gridLayout_6, 0, 0, 1, 1);
+
+
+        verticalLayout_5->addWidget(groupBox_4);
+
+        groupBox_5 = new QGroupBox(centralWidget);
+        groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
+        gridLayout_11 = new QGridLayout(groupBox_5);
+        gridLayout_11->setSpacing(6);
+        gridLayout_11->setContentsMargins(11, 11, 11, 11);
+        gridLayout_11->setObjectName(QStringLiteral("gridLayout_11"));
+        gridLayout_8 = new QGridLayout();
+        gridLayout_8->setSpacing(6);
+        gridLayout_8->setObjectName(QStringLiteral("gridLayout_8"));
+        label_7 = new QLabel(groupBox_5);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        gridLayout_8->addWidget(label_7, 0, 0, 1, 1);
+
+        maxdepthLineEdit = new QLineEdit(groupBox_5);
+        maxdepthLineEdit->setObjectName(QStringLiteral("maxdepthLineEdit"));
+
+        gridLayout_8->addWidget(maxdepthLineEdit, 0, 1, 1, 1);
+
+        label_11 = new QLabel(groupBox_5);
+        label_11->setObjectName(QStringLiteral("label_11"));
+
+        gridLayout_8->addWidget(label_11, 1, 0, 1, 1);
+
+        mindepthLineEdit = new QLineEdit(groupBox_5);
+        mindepthLineEdit->setObjectName(QStringLiteral("mindepthLineEdit"));
+
+        gridLayout_8->addWidget(mindepthLineEdit, 1, 1, 1, 1);
+
+        setColorButton = new QPushButton(groupBox_5);
+        setColorButton->setObjectName(QStringLiteral("setColorButton"));
+
+        gridLayout_8->addWidget(setColorButton, 2, 0, 1, 2);
+
+
+        gridLayout_11->addLayout(gridLayout_8, 0, 0, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_11->addItem(verticalSpacer, 1, 0, 1, 1);
+
+
+        verticalLayout_5->addWidget(groupBox_5);
+
+
+        gridLayout_12->addLayout(verticalLayout_5, 0, 0, 1, 1);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        graylabel = new QLabel(centralWidget);
         graylabel->setObjectName(QStringLiteral("graylabel"));
         graylabel->setMinimumSize(QSize(320, 240));
-        graylabel->setMaximumSize(QSize(320, 240));
+        graylabel->setMaximumSize(QSize(10000, 240));
         graylabel->setAlignment(Qt::AlignCenter);
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, graylabel);
+        verticalLayout->addWidget(graylabel);
 
-        colorlabel = new QLabel(layoutWidget);
+        colorlabel = new QLabel(centralWidget);
         colorlabel->setObjectName(QStringLiteral("colorlabel"));
         colorlabel->setMinimumSize(QSize(320, 240));
-        colorlabel->setMaximumSize(QSize(320, 240));
+        colorlabel->setMaximumSize(QSize(10000, 10000));
         colorlabel->setAlignment(Qt::AlignCenter);
 
-        formLayout->setWidget(1, QFormLayout::LabelRole, colorlabel);
+        verticalLayout->addWidget(colorlabel);
+
+
+        gridLayout_12->addLayout(verticalLayout, 0, 1, 1, 1);
+
+
+        gridLayout_13->addLayout(gridLayout_12, 0, 0, 1, 1);
 
         FileConversionClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(FileConversionClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 963, 23));
+        menuBar->setGeometry(QRect(0, 0, 533, 23));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuHelp = new QMenu(menuBar);
@@ -205,357 +421,6 @@ public:
         statusBar = new QStatusBar(FileConversionClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         FileConversionClass->setStatusBar(statusBar);
-        dockWidget_4 = new QDockWidget(FileConversionClass);
-        dockWidget_4->setObjectName(QStringLiteral("dockWidget_4"));
-        dockWidget_4->setMinimumSize(QSize(200, 190));
-        dockWidget_4->setMaximumSize(QSize(200, 524287));
-        dockWidgetContents_4 = new QWidget();
-        dockWidgetContents_4->setObjectName(QStringLiteral("dockWidgetContents_4"));
-        horizontalLayout = new QHBoxLayout(dockWidgetContents_4);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        label_3 = new QLabel(dockWidgetContents_4);
-        label_3->setObjectName(QStringLiteral("label_3"));
-
-        horizontalLayout_3->addWidget(label_3);
-
-        horizontalSpacer = new QSpacerItem(1, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer);
-
-        uplineEdit = new QLineEdit(dockWidgetContents_4);
-        uplineEdit->setObjectName(QStringLiteral("uplineEdit"));
-
-        horizontalLayout_3->addWidget(uplineEdit);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_3);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        label_5 = new QLabel(dockWidgetContents_4);
-        label_5->setObjectName(QStringLiteral("label_5"));
-
-        horizontalLayout_5->addWidget(label_5);
-
-        horizontalSpacer_2 = new QSpacerItem(1, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_5->addItem(horizontalSpacer_2);
-
-        downlineEdit = new QLineEdit(dockWidgetContents_4);
-        downlineEdit->setObjectName(QStringLiteral("downlineEdit"));
-
-        horizontalLayout_5->addWidget(downlineEdit);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_5);
-
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setSpacing(6);
-        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        label_9 = new QLabel(dockWidgetContents_4);
-        label_9->setObjectName(QStringLiteral("label_9"));
-
-        horizontalLayout_6->addWidget(label_9);
-
-        horizontalSpacer_3 = new QSpacerItem(1, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_6->addItem(horizontalSpacer_3);
-
-        leftlineEdit = new QLineEdit(dockWidgetContents_4);
-        leftlineEdit->setObjectName(QStringLiteral("leftlineEdit"));
-
-        horizontalLayout_6->addWidget(leftlineEdit);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_6);
-
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setSpacing(6);
-        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        label_6 = new QLabel(dockWidgetContents_4);
-        label_6->setObjectName(QStringLiteral("label_6"));
-
-        horizontalLayout_7->addWidget(label_6);
-
-        horizontalSpacer_4 = new QSpacerItem(1, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_7->addItem(horizontalSpacer_4);
-
-        rightlineEdit = new QLineEdit(dockWidgetContents_4);
-        rightlineEdit->setObjectName(QStringLiteral("rightlineEdit"));
-
-        horizontalLayout_7->addWidget(rightlineEdit);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_7);
-
-
-        verticalLayout_3->addLayout(verticalLayout_2);
-
-        confirmButton = new QPushButton(dockWidgetContents_4);
-        confirmButton->setObjectName(QStringLiteral("confirmButton"));
-
-        verticalLayout_3->addWidget(confirmButton);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_3->addItem(verticalSpacer);
-
-
-        horizontalLayout->addLayout(verticalLayout_3);
-
-        dockWidget_4->setWidget(dockWidgetContents_4);
-        FileConversionClass->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dockWidget_4);
-        dockWidget_6 = new QDockWidget(FileConversionClass);
-        dockWidget_6->setObjectName(QStringLiteral("dockWidget_6"));
-        dockWidget_6->setMinimumSize(QSize(200, 147));
-        dockWidgetContents_6 = new QWidget();
-        dockWidgetContents_6->setObjectName(QStringLiteral("dockWidgetContents_6"));
-        verticalLayout_7 = new QVBoxLayout(dockWidgetContents_6);
-        verticalLayout_7->setSpacing(6);
-        verticalLayout_7->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setSpacing(6);
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        horizontalLayout_11 = new QHBoxLayout();
-        horizontalLayout_11->setSpacing(6);
-        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
-        label_13 = new QLabel(dockWidgetContents_6);
-        label_13->setObjectName(QStringLiteral("label_13"));
-
-        horizontalLayout_11->addWidget(label_13);
-
-        horizontalSpacer_5 = new QSpacerItem(50, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_11->addItem(horizontalSpacer_5);
-
-        totalframelineEdit = new QLineEdit(dockWidgetContents_6);
-        totalframelineEdit->setObjectName(QStringLiteral("totalframelineEdit"));
-        totalframelineEdit->setReadOnly(true);
-
-        horizontalLayout_11->addWidget(totalframelineEdit);
-
-
-        verticalLayout_5->addLayout(horizontalLayout_11);
-
-        horizontalLayout_12 = new QHBoxLayout();
-        horizontalLayout_12->setSpacing(6);
-        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
-        label_14 = new QLabel(dockWidgetContents_6);
-        label_14->setObjectName(QStringLiteral("label_14"));
-
-        horizontalLayout_12->addWidget(label_14);
-
-        currentlineEdit = new QLineEdit(dockWidgetContents_6);
-        currentlineEdit->setObjectName(QStringLiteral("currentlineEdit"));
-        currentlineEdit->setReadOnly(true);
-
-        horizontalLayout_12->addWidget(currentlineEdit);
-
-
-        verticalLayout_5->addLayout(horizontalLayout_12);
-
-        horizontalLayout_13 = new QHBoxLayout();
-        horizontalLayout_13->setSpacing(6);
-        horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
-        backButton = new QPushButton(dockWidgetContents_6);
-        backButton->setObjectName(QStringLiteral("backButton"));
-
-        horizontalLayout_13->addWidget(backButton);
-
-        nextButton = new QPushButton(dockWidgetContents_6);
-        nextButton->setObjectName(QStringLiteral("nextButton"));
-
-        horizontalLayout_13->addWidget(nextButton);
-
-
-        verticalLayout_5->addLayout(horizontalLayout_13);
-
-
-        verticalLayout_7->addLayout(verticalLayout_5);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_7->addItem(verticalSpacer_2);
-
-        dockWidget_6->setWidget(dockWidgetContents_6);
-        FileConversionClass->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dockWidget_6);
-        dockWidget_3 = new QDockWidget(FileConversionClass);
-        dockWidget_3->setObjectName(QStringLiteral("dockWidget_3"));
-        dockWidget_3->setFloating(false);
-        dockWidgetContents_10 = new QWidget();
-        dockWidgetContents_10->setObjectName(QStringLiteral("dockWidgetContents_10"));
-        verticalLayout_8 = new QVBoxLayout(dockWidgetContents_10);
-        verticalLayout_8->setSpacing(6);
-        verticalLayout_8->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        horizontalLayout_20 = new QHBoxLayout();
-        horizontalLayout_20->setSpacing(6);
-        horizontalLayout_20->setObjectName(QStringLiteral("horizontalLayout_20"));
-        label_12 = new QLabel(dockWidgetContents_10);
-        label_12->setObjectName(QStringLiteral("label_12"));
-
-        horizontalLayout_20->addWidget(label_12);
-
-        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_20->addItem(horizontalSpacer_6);
-
-        xlineEdit = new QLineEdit(dockWidgetContents_10);
-        xlineEdit->setObjectName(QStringLiteral("xlineEdit"));
-        xlineEdit->setReadOnly(true);
-
-        horizontalLayout_20->addWidget(xlineEdit);
-
-
-        verticalLayout->addLayout(horizontalLayout_20);
-
-        horizontalLayout_21 = new QHBoxLayout();
-        horizontalLayout_21->setSpacing(6);
-        horizontalLayout_21->setObjectName(QStringLiteral("horizontalLayout_21"));
-        label_15 = new QLabel(dockWidgetContents_10);
-        label_15->setObjectName(QStringLiteral("label_15"));
-
-        horizontalLayout_21->addWidget(label_15);
-
-        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_21->addItem(horizontalSpacer_7);
-
-        ylineEdit = new QLineEdit(dockWidgetContents_10);
-        ylineEdit->setObjectName(QStringLiteral("ylineEdit"));
-        ylineEdit->setReadOnly(true);
-
-        horizontalLayout_21->addWidget(ylineEdit);
-
-
-        verticalLayout->addLayout(horizontalLayout_21);
-
-        horizontalLayout_22 = new QHBoxLayout();
-        horizontalLayout_22->setSpacing(6);
-        horizontalLayout_22->setObjectName(QStringLiteral("horizontalLayout_22"));
-        label_16 = new QLabel(dockWidgetContents_10);
-        label_16->setObjectName(QStringLiteral("label_16"));
-
-        horizontalLayout_22->addWidget(label_16);
-
-        horizontalSpacer_8 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_22->addItem(horizontalSpacer_8);
-
-        depthlineEdit = new QLineEdit(dockWidgetContents_10);
-        depthlineEdit->setObjectName(QStringLiteral("depthlineEdit"));
-        depthlineEdit->setReadOnly(true);
-
-        horizontalLayout_22->addWidget(depthlineEdit);
-
-
-        verticalLayout->addLayout(horizontalLayout_22);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        label = new QLabel(dockWidgetContents_10);
-        label->setObjectName(QStringLiteral("label"));
-
-        horizontalLayout_2->addWidget(label);
-
-        horizontalSpacer_9 = new QSpacerItem(5, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_2->addItem(horizontalSpacer_9);
-
-        DislineEdit = new QLineEdit(dockWidgetContents_10);
-        DislineEdit->setObjectName(QStringLiteral("DislineEdit"));
-        DislineEdit->setReadOnly(true);
-
-        horizontalLayout_2->addWidget(DislineEdit);
-
-
-        verticalLayout->addLayout(horizontalLayout_2);
-
-
-        verticalLayout_8->addLayout(verticalLayout);
-
-        verticalSpacer_3 = new QSpacerItem(20, 70, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_8->addItem(verticalSpacer_3);
-
-        dockWidget_3->setWidget(dockWidgetContents_10);
-        FileConversionClass->addDockWidget(static_cast<Qt::DockWidgetArea>(2), dockWidget_3);
-        dockWidget_7 = new QDockWidget(FileConversionClass);
-        dockWidget_7->setObjectName(QStringLiteral("dockWidget_7"));
-        dockWidget_7->setMinimumSize(QSize(200, 133));
-        dockWidgetContents_9 = new QWidget();
-        dockWidgetContents_9->setObjectName(QStringLiteral("dockWidgetContents_9"));
-        verticalLayout_4 = new QVBoxLayout(dockWidgetContents_9);
-        verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setSpacing(6);
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        horizontalLayout_15 = new QHBoxLayout();
-        horizontalLayout_15->setSpacing(6);
-        horizontalLayout_15->setObjectName(QStringLiteral("horizontalLayout_15"));
-        label_7 = new QLabel(dockWidgetContents_9);
-        label_7->setObjectName(QStringLiteral("label_7"));
-
-        horizontalLayout_15->addWidget(label_7);
-
-        maxdepthLineEdit = new QLineEdit(dockWidgetContents_9);
-        maxdepthLineEdit->setObjectName(QStringLiteral("maxdepthLineEdit"));
-
-        horizontalLayout_15->addWidget(maxdepthLineEdit);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_15);
-
-        horizontalLayout_16 = new QHBoxLayout();
-        horizontalLayout_16->setSpacing(6);
-        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
-        label_11 = new QLabel(dockWidgetContents_9);
-        label_11->setObjectName(QStringLiteral("label_11"));
-
-        horizontalLayout_16->addWidget(label_11);
-
-        mindepthLineEdit = new QLineEdit(dockWidgetContents_9);
-        mindepthLineEdit->setObjectName(QStringLiteral("mindepthLineEdit"));
-
-        horizontalLayout_16->addWidget(mindepthLineEdit);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_16);
-
-        setColorButton = new QPushButton(dockWidgetContents_9);
-        setColorButton->setObjectName(QStringLiteral("setColorButton"));
-
-        verticalLayout_6->addWidget(setColorButton);
-
-
-        verticalLayout_4->addLayout(verticalLayout_6);
-
-        verticalSpacer_6 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_4->addItem(verticalSpacer_6);
-
-        dockWidget_7->setWidget(dockWidgetContents_9);
-        FileConversionClass->addDockWidget(static_cast<Qt::DockWidgetArea>(2), dockWidget_7);
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuHelp->menuAction());
@@ -569,9 +434,9 @@ public:
         mainToolBar->addAction(abouttoolAction);
 
         retranslateUi(FileConversionClass);
-        QObject::connect(confirmButton, SIGNAL(clicked()), FileConversionClass, SLOT(ConfirmSlot()));
         QObject::connect(backButton, SIGNAL(clicked()), FileConversionClass, SLOT(TurnLeftSlot()));
         QObject::connect(nextButton, SIGNAL(clicked()), FileConversionClass, SLOT(TurnRightSlot()));
+        QObject::connect(confirmButton, SIGNAL(clicked()), FileConversionClass, SLOT(ConfirmSlot()));
 
         QMetaObject::connectSlotsByName(FileConversionClass);
     } // setupUi
@@ -587,11 +452,14 @@ public:
         saveAction->setText(QApplication::translate("FileConversionClass", "Save", 0));
         saveallAction->setText(QApplication::translate("FileConversionClass", "SaveAll", 0));
         aboutAction->setText(QApplication::translate("FileConversionClass", "About", 0));
-        graylabel->setText(QString());
-        colorlabel->setText(QString());
-        menuFile->setTitle(QApplication::translate("FileConversionClass", "File", 0));
-        menuHelp->setTitle(QApplication::translate("FileConversionClass", "Help", 0));
-        dockWidget_4->setWindowTitle(QApplication::translate("FileConversionClass", "Paraments", 0));
+        groupBox_2->setTitle(QApplication::translate("FileConversionClass", "Frame", 0));
+        label_13->setText(QApplication::translate("FileConversionClass", "TotalFrame:", 0));
+        label_14->setText(QApplication::translate("FileConversionClass", "CurrentFrame:", 0));
+        backButton->setText(QApplication::translate("FileConversionClass", "Back", 0));
+        nextButton->setText(QApplication::translate("FileConversionClass", "Next", 0));
+        totalframelineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
+        currentlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
+        groupBox_3->setTitle(QApplication::translate("FileConversionClass", "Parametres", 0));
         label_3->setText(QApplication::translate("FileConversionClass", "Up:", 0));
         uplineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
         label_5->setText(QApplication::translate("FileConversionClass", "Down:", 0));
@@ -601,14 +469,7 @@ public:
         label_6->setText(QApplication::translate("FileConversionClass", "Right:", 0));
         rightlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
         confirmButton->setText(QApplication::translate("FileConversionClass", "Confirm", 0));
-        dockWidget_6->setWindowTitle(QApplication::translate("FileConversionClass", "Frame", 0));
-        label_13->setText(QApplication::translate("FileConversionClass", "TotalFrame:", 0));
-        totalframelineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
-        label_14->setText(QApplication::translate("FileConversionClass", "CurrentFrame:", 0));
-        currentlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
-        backButton->setText(QApplication::translate("FileConversionClass", "Back", 0));
-        nextButton->setText(QApplication::translate("FileConversionClass", "Next", 0));
-        dockWidget_3->setWindowTitle(QApplication::translate("FileConversionClass", " Coordinate ", 0));
+        groupBox_4->setTitle(QApplication::translate("FileConversionClass", "Information", 0));
         label_12->setText(QApplication::translate("FileConversionClass", "X:", 0));
         xlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
         label_15->setText(QApplication::translate("FileConversionClass", "Y:", 0));
@@ -617,12 +478,16 @@ public:
         depthlineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
         label->setText(QApplication::translate("FileConversionClass", "Distance:", 0));
         DislineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
-        dockWidget_7->setWindowTitle(QApplication::translate("FileConversionClass", "Color", 0));
+        groupBox_5->setTitle(QApplication::translate("FileConversionClass", "Distance", 0));
         label_7->setText(QApplication::translate("FileConversionClass", "MaxDepth:", 0));
         maxdepthLineEdit->setText(QApplication::translate("FileConversionClass", "30000", 0));
         label_11->setText(QApplication::translate("FileConversionClass", "Mindepth:", 0));
         mindepthLineEdit->setText(QApplication::translate("FileConversionClass", "0", 0));
         setColorButton->setText(QApplication::translate("FileConversionClass", "Setdepth", 0));
+        graylabel->setText(QString());
+        colorlabel->setText(QString());
+        menuFile->setTitle(QApplication::translate("FileConversionClass", "File", 0));
+        menuHelp->setTitle(QApplication::translate("FileConversionClass", "Help", 0));
     } // retranslateUi
 
 };

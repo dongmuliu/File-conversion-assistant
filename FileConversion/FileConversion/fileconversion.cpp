@@ -154,7 +154,7 @@ void FileConversion::SaveAllFileSlot()
 {
 	if (filestate != 1 && filestate != 2 && filestate != 3)
 	{
-		QMessageBox::information(this, "Error Message", "Please Open a File,Then Save");
+		QMessageBox::information(this, tr("Error Message"), tr("Please Open a File,Then Save"));
 		return;  //文件保存错误显示错误信息
 	}
 	
@@ -259,7 +259,7 @@ void FileConversion::TurnRightSlot()
 }
 void FileConversion::AboutSlot()
 {
-	QMessageBox::information(this, " Message", "Other features are under development!!!");
+	QMessageBox::information(this, tr(" Message"), tr("Other features are under development!!!"));
 	return;
 }
 
@@ -284,7 +284,7 @@ void FileConversion::ConfirmSlot()
 	}
 	else
 	{
-		QMessageBox::information(this, "Warning Message", "This is not a csv file, No need to set");
+		QMessageBox::information(this, tr("Warning Message"), tr("This is not a csv file, No need to set"));
 		ui.uplineEdit->setText("0");
 		ui.downlineEdit->setText("0");
 		ui.leftlineEdit->setText("0");
@@ -365,23 +365,19 @@ void FileConversion::showgrayimage()
 	label = new QLabel();
 	ui.graylabel->setAlignment(Qt::AlignCenter);		//居中显示
 	ui.graylabel->setPixmap(QPixmap::fromImage(img));
-	//ui.graytextlabel->setText("gray");
-	//topPoint.x = leftTopLeftPoint.x() - xoffset;
-	//int  viewPoint = event.globalPos();
-	/*QString x = QString::number(yoffset);
-	ui.lineEdit->setText(x);*/
-	//setMouseCallback(label, on_mouse, &savemat);
 	
-	
+
 }
 void FileConversion::showcolorimage()
 {
 	
+	//double interdepth = 894.0 / (maxdepth - mindepth);
+	//Mat zip = _matimg_short.clone();
 	for (int i = 0; i < Img_height; i++)
 	{
 		for (int j = 0; j < Img_width; j++)
 		{
-			img_tmp = _matimg_short.at<ushort>(i, j);
+			img_tmp = _matimg_short.at<ushort>(i,j);
 			if (img_tmp < 64)
 			{
 				IMG_R(img_color, i, j) = 191+ img_tmp;

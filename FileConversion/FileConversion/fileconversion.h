@@ -68,8 +68,8 @@ private:
 
 	int filestate = 0;
 	int   frameheight;
-	uint16_t depth[240][320];
-	uint16_t savedepth[240][320];
+	uint16_t depth[Img_height][Img_width];
+	uint16_t savedepth[Img_height][Img_width];
 	
 	Mat zip;
 	Mat img_color;
